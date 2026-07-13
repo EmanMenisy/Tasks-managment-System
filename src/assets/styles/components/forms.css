@@ -14,12 +14,11 @@
 }
 
 .input-error {
-  @apply bg-red-100
+  @apply bg-error/10
          text-error;
 }
 
 .form-label{
-
     @apply text-label-sm
            font-semibold
            uppercase

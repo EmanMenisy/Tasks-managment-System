@@ -1,0 +1,17 @@
+.icon-container{
+    @apply 
+      flex
+      items-center
+      justify-center
+      rounded-input
+      bg-surface-low
+      p-2
+}
+
+.icon{
+  @apply 
+  w-icon
+  h-icon
+  text-primary
+}
+

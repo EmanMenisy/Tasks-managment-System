@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
-@import "./assets/styles/base/color-pallette.css";
+@import "./styles/base/theme.css";
 @import "./styles/components/buttons.css";
 @import "./styles/components/forms.css";
+@import "./styles/components/card.css";
+@import "./styles/components/icons.css";
 
