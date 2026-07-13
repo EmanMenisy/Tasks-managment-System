@@ -1,0 +1,81 @@
+
+@theme{
+  /*=========================
+        COLORS
+  =========================*/
+
+  --color-primary: #003D9B;
+  --color-primary-container: #0052CC;
+
+  --color-surface-highest: #D7E2FF;
+  --color-surface-low: #F1F3FF;
+  --color-background: #F9F9FF;
+
+  --color-neutral-900: #041B3C;
+  --color-neutral-700: #4F5F7B;
+  --color-neutral-300: #C3C6D6;
+
+  --color-success: #73E9AF;
+  --color-error: #C61B1B;
+  --color-warning: #FFB300;
+
+   --color-text-secondary :#434654;
+
+  /*=========================
+          FONT
+  =========================*/
+
+  --font-sans: "Inter", sans-serif;
+
+/*=========================
+   Font Sizes
+  =========================*/
+
+--text-display-lg: 56px;
+--text-headline-lg: 32px;
+--text-title-md: 18px;
+--text-body-md: 12px;
+--text-label-sm: 11px;
+--text-title-lg :20px;
+--text-title-sm :14px;
+
+ /*=========================
+    Font Weights
+  =========================*/
+
+--font-weight-regular:400;
+--font-weight-medium:500;
+--font-weight-semibold:600;
+--font-weight-bold:700;
+
+  
+ /*=========================
+       Radius
+  =========================*/
+
+  --radius-button:2px;
+  --radius-input:4px;
+  --radius-white-card:4px;
+  --radius-card:8px;
+
+  /*=========================
+        Shadow
+  =========================*/
+
+  --shadow-card:
+      0 2px 8px rgba(0,0,0,.08);
+
+
+/*=========================
+        Spacing
+  =========================*/
+
+  --spacing-1:4px;
+  --spacing-2:8px;
+  --spacing-3:12px;
+  --spacing-4:16px;
+  --spacing-5:20px;
+  --spacing-6:24px;
+  --spacing-8:32px;
+ 
+}

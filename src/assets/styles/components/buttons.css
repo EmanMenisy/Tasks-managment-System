@@ -1,0 +1,27 @@
+.btn {
+  @apply inline-flex items-center justify-center
+         px-4 
+         py-2
+         rounded-button
+         font-medium
+         transition-colors
+         duration-200;
+}
+
+.btn-primary {
+  @apply btn
+         bg-primary
+         text-white
+}
+
+.btn-secondary {
+  @apply btn
+         bg-transparent
+         text-primary
+}
+
+.btn-ghost {
+  @apply btn
+         bg-transparent
+         text-neutral-700
+}
