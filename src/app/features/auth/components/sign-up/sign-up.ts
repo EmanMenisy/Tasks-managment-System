@@ -78,4 +78,8 @@ get email() {
   return this.signUpForm.controls.email;
 }
 
+control(name: string) {
+  return this.signUpForm.get(name);
+}
+
 }

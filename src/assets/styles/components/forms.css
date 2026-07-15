@@ -17,7 +17,11 @@
 
 .input-error {
   @apply bg-error/10
-         text-error;
+         text-error
+         border
+         border-error
+         outline-error
+         ;
 }
 
 .form-label {

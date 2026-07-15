@@ -12,35 +12,33 @@
           placeholder="Enter your full name"
           class="input"
           formControlName="name"
+          [class.input-error]="signUpForm.controls.name.invalid && signUpForm.controls.name.touched"
         />
         @if (signUpForm.controls.name.touched && signUpForm.controls.name.errors) {
           @if (signUpForm.controls.name.hasError('required')) {
-            <small>Name is required.</small>
+            <small class="text-error" >Name is required.</small >
           }
 
           @if (signUpForm.controls.name.hasError('minlength')) {
-            <small>Name must be at least 3 characters.</small>
+            <small class="text-error" >Name must be at least 3 characters.</small >
           }
 
           @if (signUpForm.controls.name.hasError('maxlength')) {
-            <small>Name must not exceed 50 characters.</small>
+            <small class="text-error" >Name must not exceed 50 characters.</small >
           }
 
           @if (signUpForm.controls.name.hasError('hasNumber')) {
-            <small>Numbers are not allowed.</small>
+            <small class="text-error" >Numbers are not allowed.</small >
           }
 
           @if (signUpForm.controls.name.hasError('hasSpecialCharacter')) {
-            <small>Special characters and emojis are not allowed.</small>
+            <small class="text-error" >Special characters are not allowed.</small >
           }
 
           @if (signUpForm.controls.name.hasError('multipleSpaces')) {
-            <small>Multiple consecutive spaces are not allowed.</small>
+            <small class="text-error" >Multiple spaces are not allowed.</small >
           }
         }
-        <small class="text-label-sm text-neutral-400 font-regular px-1"
-          >3-50 characters, letters only.</small
-        >
       </div>
       <div class="form-group">
         <label class="form-label">Email</label>
@@ -51,6 +49,14 @@
           formControlName="email"
           [class.input-error]="email.invalid && email.touched"
         />
+    @if(signUpForm.controls.email.touched && signUpForm.controls.email.errors) {
+      @if(signUpForm.controls.email.hasError('required')){
+         <small class="text-error" >Email is required.</small >
+      }
+        @if(signUpForm.controls.email.hasError('email')){
+           <small class="text-error" >Email not valid.</small >
+      }
+    }
       </div>
       <div class="form-group">
         <label class="form-label">Job Title (Optional)</label>
@@ -70,6 +76,7 @@
               placeholder="password"
               class="input w-full pr-10"
               formControlName="password"
+              [class.input-error]="password.invalid && password.touched"
             />
             <img
               [src]="showPassword() ? '/icons/eye-off.svg' : '/icons/Icon.svg'"
@@ -86,9 +93,10 @@
             placeholder="Repeat your password"
             class="input"
             formControlName="confirmPassword"
+            [class.input-error]="confirmPassword.invalid && confirmPassword.touched"
           />
           @if (confirmPassword.touched && signUpForm.hasError('passwordMismatch')) {
-            <small class="text-error">Passwords do not match.</small>
+            <small  class="text-error">Passwords do not match.</small >
           }
         </div>
       </div>
@@ -96,7 +104,7 @@
       <div class="card-Surface">
         <div class="flex items-center gap-1 mb-1">
           <img
-            [src]="password.value && !password.hasError('minlength') ? '/icons/Icon (1).svg'
+            [src]="control('password')?.value && !control('password')?.hasError('minlength') ? '/icons/Icon (1).svg'
                 : '/icons/Icon (2).svg'"
             alt=""
             class="w-3"
@@ -106,9 +114,9 @@
         <div class="flex items-center gap-1 mb-1">
           <img
             [src]="
-              password.value && !password.hasError('missingUppercase') &&
-              !password.hasError('missingLowercase') &&
-              !password.hasError('missingDigit')
+              control('password')?.value && !control('password')?.hasError('missingUppercase') &&
+              !control('password')?.hasError('missingLowercase') &&
+              !control('password')?.hasError('missingDigit')
                 ? '/icons/Icon (1).svg'
                 : '/icons/Icon (2).svg'
             "
@@ -120,7 +128,7 @@
         <div class="flex items-center gap-1 mb-1">
           <img
             [src]="
-                 password.value && !password.hasError('missingSpecialCharacter')
+                 control('password')?.value && !control('password')?.hasError('missingSpecialCharacter')
                 ? '/icons/Icon (1).svg' 
                 : '/icons/Icon (2).svg'
             "
