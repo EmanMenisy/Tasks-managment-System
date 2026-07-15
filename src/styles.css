@@ -1,9 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 @import 'tailwindcss';
-@import "./styles/base/theme.css";
-@import "./styles/components/buttons.css";
-@import "./styles/components/forms.css";
-@import "./styles/components/card.css";
-@import "./styles/components/icons.css";
+@import './assets/styles/base/theme.css';
+@import './assets/styles/components/buttons.css';
+@import './assets/styles/components/card.css';
+@import './assets/styles/components/forms.css';
+@import './assets/styles/components/icons.css';
 
+body {
+  font-family: "Inter", sans-serif;
+}

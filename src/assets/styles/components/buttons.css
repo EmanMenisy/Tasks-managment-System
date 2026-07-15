@@ -4,24 +4,33 @@
          py-2
          rounded-button
          font-medium
+         cursor-pointer
          transition-colors
          duration-200;
 }
 
 .btn-primary {
-  @apply btn
+  @apply 
          bg-primary
          text-white
 }
 
 .btn-secondary {
-  @apply btn
+  @apply 
          bg-transparent
          text-primary
 }
 
 .btn-ghost {
-  @apply btn
+  @apply 
          bg-transparent
          text-neutral-700
+}
+
+.btn[disabled] {
+  @apply
+    bg-neutral-300
+    text-neutral-700
+    cursor-not-allowed
+    opacity-60;
 }

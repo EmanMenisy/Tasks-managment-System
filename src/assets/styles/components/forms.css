@@ -1,16 +1,18 @@
+.form-group {
+  @apply flex
+         flex-col
+         gap-1
+         my-4;
+}
+
 .input {
-  @apply 
-         rounded-input
+  @apply rounded-input
          px-4
          py-3
          bg-surface-highest
          border
          border-transparent
-         outline-none;
-}
-
-.input:focus {
-  @apply border-primary;
+         outline-none;    
 }
 
 .input-error {
@@ -18,19 +20,21 @@
          text-error;
 }
 
-.form-label{
-    @apply text-label-sm
+.form-label {
+  @apply   text-label-sm
            font-semibold
            uppercase
            tracking-wide
            text-neutral-700;
-
 }
 
-.form-group {
-  @apply flex
-         flex-col
-         gap-2;
+
+
+input::placeholder {
+  color: var(--color-text-gray);
+  font-size: var(--text-title-sm);
+  font-weight: var(--font-weight-regular);
 }
+
 
 

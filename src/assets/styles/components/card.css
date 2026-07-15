@@ -1,13 +1,11 @@
 
 .card {
-
  @apply bg-white 
         rounded-white-card
         border
         border-neutral-300
-        p-6;
+        p-3;
 }
-
 
 .card-primary {
   @apply 
@@ -19,6 +17,12 @@
         p-6;
 }
 
+.card-Surface{
+  @apply 
+        bg-surface-highest 
+        rounded-card 
+        p-6;
+}
 
 .card-header{
     @apply flex
@@ -28,19 +32,24 @@
 }
 
 .card-main-title{
-
     @apply text-title-lg
            font-bold;
 }
 
 .card-second-title{
-
     @apply text-title-sm
-           text-text-secondary
+           text-neutral-700
            font-regular;
-
-
 }
+
+.auth-card{
+    @apply bg-white 
+        rounded-white-card
+        shadow-card
+        p-8;   
+}
+
+
 
 
 

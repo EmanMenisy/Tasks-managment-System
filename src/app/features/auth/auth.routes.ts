@@ -1,0 +1,21 @@
+import { Routes } from '@angular/router';
+import { AuthLayout } from './components/auth-layout/auth-layout';
+import { SignUp } from './components/sign-up/sign-up';
+
+export const AUTH_ROUTES: Routes = [
+  {
+    path: '',
+    component: AuthLayout,
+    children: [
+      {
+        path: 'sign-up',
+        component: SignUp,
+      },
+      {
+        path: '',
+        redirectTo: 'sign-up',
+        pathMatch: 'full',
+      },
+    ],
+  },
+];
