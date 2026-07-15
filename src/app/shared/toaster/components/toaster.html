@@ -1,0 +1,22 @@
+@if (toasterService.toaster(); as toast) {
+  <div
+    class="toast"
+    [class]="toast.type + ' ' + toast.position"
+  >
+    <img
+      [src]="toast.icon"
+      [alt]="toast.type"
+      class="toast-icon"
+    />
+
+    <div class="toast-body">
+      <h4 class="toast-title">
+        {{ toast.type }}
+      </h4>
+
+      <small class="toast-message">
+        {{ toast.message }}
+      </small>
+    </div>
+  </div>
+}

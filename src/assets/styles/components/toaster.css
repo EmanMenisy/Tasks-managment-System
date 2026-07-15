@@ -1,0 +1,65 @@
+
+.toast {
+  @apply fixed
+         z-50
+         flex
+         items-center
+         gap-3
+         rounded-sm
+         p-5
+         w-70
+         h-20
+         shadow-lg;     
+}
+
+/* ===========================
+   Positions
+=========================== */
+
+.top-right {
+  @apply top-5 right-5;
+}
+
+.top-left {
+  @apply top-5 left-5;
+}
+
+.bottom-right {
+  @apply bottom-5 right-5;
+}
+
+.bottom-left {
+  @apply bottom-5 left-5;
+}
+
+/* ===========================
+   Types
+=========================== */
+
+.Success {
+  @apply bg-success border border-success;
+}
+
+.Error {
+  @apply bg-error border border-error text-amber-50;
+}
+
+.Warning {
+  @apply bg-warning border border-warning;
+}
+
+.Info {
+  @apply bg-primary border border-primary;
+}
+
+/* ===========================
+   Content
+=========================== */
+
+.toast-icon {
+  @apply w-5 h-5;
+}
+
+.toast-message {
+  @apply text-sm font-semibold;
+}

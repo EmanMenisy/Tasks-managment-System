@@ -49,6 +49,15 @@
         p-8;   
 }
 
+.toast{
+    @apply
+        rounded-white-card
+        border
+        p-3
+        w-20
+        h-10;
+}
+
 
 
 

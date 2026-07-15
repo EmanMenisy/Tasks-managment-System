@@ -47,7 +47,7 @@
           placeholder="yourname@company.com"
           class="input"
           formControlName="email"
-          [class.input-error]="email.invalid && email.touched"
+          [class.input-error]="control('email')?.invalid && control('email')?.touched"
         />
     @if(signUpForm.controls.email.touched && signUpForm.controls.email.errors) {
       @if(signUpForm.controls.email.hasError('required')){
@@ -76,7 +76,7 @@
               placeholder="password"
               class="input w-full pr-10"
               formControlName="password"
-              [class.input-error]="password.invalid && password.touched"
+              [class.input-error]="control('password')?.invalid && control('password')?.touched"
             />
             <img
               [src]="showPassword() ? '/icons/eye-off.svg' : '/icons/Icon.svg'"
@@ -93,9 +93,9 @@
             placeholder="Repeat your password"
             class="input"
             formControlName="confirmPassword"
-            [class.input-error]="confirmPassword.invalid && confirmPassword.touched"
+            [class.input-error]="control('confirmPassword')?.invalid && control('confirmPassword')?.touched"
           />
-          @if (confirmPassword.touched && signUpForm.hasError('passwordMismatch')) {
+          @if (control('confirmPassword')?.touched && signUpForm.hasError('passwordMismatch')) {
             <small  class="text-error">Passwords do not match.</small >
           }
         </div>

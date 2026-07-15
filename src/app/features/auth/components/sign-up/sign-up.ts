@@ -5,6 +5,7 @@ import { nameValidator } from '../../../../shared/validators/name.validator';
 import { passwordValidator } from '../../../../shared/validators/password.validator';
 import { JsonPipe } from '@angular/common';
 import { matchPasswordValidator } from '../../../../shared/validators/match-password.validator';
+import { toasterService } from '../../../../shared/toaster/service/toaster';
 
 @Component({
   standalone: true,
@@ -17,6 +18,9 @@ export class SignUp {
 protected showPassword = signal(false);
 private fb = inject(FormBuilder);
 private authService = inject(Auth);
+private toaster = inject(toasterService);
+
+
 signUpForm = this.fb.group({
   name: [
   '',
@@ -53,9 +57,26 @@ createAcount(){
     }
   }
   this.authService.signUp(payload).subscribe({
-    next:(res)=>{console.log(res)},
-    error:(err)=>{},
-    complete:()=>{}
+    next:(res)=>{
+       this.toaster.show({
+      type: 'Success',
+      message: 'you have been registered successfully.',
+      icon: '/icons/Icon (3).png',
+      position: 'top-right'
+    });
+    },
+    error:(err)=>{
+      console.log(err);
+      this.toaster.show({
+      type: 'Error',
+      message: err.error.msg,
+      icon: '/icons/error.svg',
+      position: 'top-right'
+    });
+    },
+    complete:()=>{
+
+    }
   })
 }
 
@@ -64,19 +85,6 @@ togglePassword(){
   this.showPassword.update(value => !value);
 }
 
-
-//get password control to insure validation
-get password() {
-  return this.signUpForm.controls.password;
-}
-
-get confirmPassword() {
-  return this.signUpForm.controls.confirmPassword;
-}
-
-get email() {
-  return this.signUpForm.controls.email;
-}
 
 control(name: string) {
   return this.signUpForm.get(name);
