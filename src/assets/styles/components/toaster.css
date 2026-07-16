@@ -61,5 +61,5 @@
 }
 
 .toast-message {
-  @apply text-sm font-semibold;
+  @apply text-label-sm font-semibold;
 }

@@ -6,11 +6,12 @@ import { passwordValidator } from '../../../../shared/validators/password.valida
 import { JsonPipe } from '@angular/common';
 import { matchPasswordValidator } from '../../../../shared/validators/match-password.validator';
 import { toasterService } from '../../../../shared/toaster/service/toaster';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-sign-up',
-  imports: [ReactiveFormsModule , JsonPipe],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.css',
 })
@@ -19,7 +20,7 @@ protected showPassword = signal(false);
 private fb = inject(FormBuilder);
 private authService = inject(Auth);
 private toaster = inject(toasterService);
-
+private router = inject(ActivatedRoute);
 
 signUpForm = this.fb.group({
   name: [

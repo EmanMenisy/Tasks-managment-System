@@ -1,0 +1,72 @@
+<div class="auth-card">
+  <div class="text-center">
+    <h4 class="text-headline-lg font-semibold">Welcome Back</h4>
+    <p class="card-second-title">Please enter your details to access your workspace.</p>
+  </div>
+  <div class="mt-6">
+    <form [formGroup]="LoginForm" (ngSubmit)="LogIn()">
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input
+          type="text"
+          placeholder="yourname@company.com"
+          class="input"
+          formControlName="email"
+          [class.input-error]="control('email')?.invalid && control('email')?.touched"
+        />
+        @if (LoginForm.controls.email.touched && LoginForm.controls.email.errors) {
+          @if (LoginForm.controls.email.hasError('required')) {
+            <small class="text-error">Email is required.</small>
+          }
+          @if (LoginForm.controls.email.hasError('email')) {
+            <small class="text-error">Email not valid.</small>
+          }
+        }
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <div class="relative">
+          <input
+            [type]="showPassword() ? 'text' : 'password'"
+            placeholder="password"
+            class="input w-full pr-10"
+            formControlName="password"
+            [class.input-error]="control('password')?.invalid && control('password')?.touched"
+          />
+          <img
+            [src]="showPassword() ? '/icons/eye-off.svg' : '/icons/Icon.svg'"
+            alt=""
+            class="absolute right-2 top-1/2 -translate-y-1/2 w-5 h-3 cursor-pointer"
+            (click)="togglePassword()"
+          />
+        </div>
+        @if (LoginForm.controls.password.touched && LoginForm.controls.password.errors) {
+          @if (LoginForm.controls.password.hasError('required')) {
+            <small class="text-error">password is required.</small>
+          }
+        }
+      </div>
+      <div class="form-group">
+        <div class="flex justify-between">
+          <div>
+            <label>
+              <input type="checkbox"  formControlName="rememberMe"/>
+              Remember me
+            </label>
+          </div>
+          <div>
+            <a class="text-primary font-semibold text-title-sm">Forgot Password?</a>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" [disabled]="LoginForm.invalid">Log In</button>
+      </div>
+      <div class="text-center my-6">
+        <h5 class="text-neutral-700 text-title-sm font-medium">
+          Don't have an account? <a class="text-primary font-semibold" routerLink="/auth/sign-up">Sign Up</a>
+        </h5>
+      </div>
+    </form>
+  </div>
+</div>

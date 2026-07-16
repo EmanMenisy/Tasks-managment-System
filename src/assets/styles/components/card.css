@@ -46,7 +46,9 @@
     @apply bg-white 
         rounded-white-card
         shadow-card
-        p-8;   
+        p-8
+        ; 
+          
 }
 
 .toast{

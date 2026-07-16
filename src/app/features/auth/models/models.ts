@@ -9,3 +9,9 @@ export interface SignUpPayload {
   data: SignUpData;
 }
 
+export interface logInPayload {
+  email: string;
+  password: string;
+}
+
+
