@@ -43,11 +43,11 @@
     "vitest": "^4.0.8"
   },
   "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "esbuild",
-      "lmdb",
-      "msgpackr-extract"
-    ]
-  }
+  "onlyBuiltDependencies": [
+    "@parcel/watcher",
+    "esbuild",
+    "lmdb",
+    "msgpackr-extract"
+  ]
+}
 }
