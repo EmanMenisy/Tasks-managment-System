@@ -35,6 +35,7 @@ private Router = inject(Router);
 
 
  LogIn(){
+  console.log(this.LoginForm.value.rememberMe);
   const payload = {
     email: this.LoginForm.value.email!,
     password: this.LoginForm.value.password!,
@@ -48,6 +49,7 @@ private Router = inject(Router);
       icon: '/icons/Icon (3).png',
       position: 'top-right'
     });
+
     },
     error:(err)=>{
       console.log(err);
@@ -57,6 +59,7 @@ private Router = inject(Router);
       icon: '/icons/error.svg',
       position: 'top-right'
     });
+    console.log('Login Clicked rror');
     },
     complete:()=>{
       this.Router.navigate(['/layout']);

@@ -22,7 +22,7 @@ export class NavBar implements OnInit {
  
   getUserData(){
     this.authService.getUserData().subscribe({
-      next:(res)=>{console.log(res)
+      next:(res)=>{
        this.name.set(res.user_metadata.name)
        this.department.set(res.user_metadata.department);
 
