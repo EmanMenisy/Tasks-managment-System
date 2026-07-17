@@ -1,1 +1,22 @@
-<p>nav-bar works!</p>
+<div class="min-h-14 border-b border-neutral-300 flex items-center justify-end">
+ <div class="flex items-center p-2 gap-2">
+     <div>
+        <h4 class="text-sm font-bold text-center">{{name()}}</h4>
+        <h6 class="text-label-sm text-primary font-semibold">{{department()}}</h6>
+     </div>
+     <div>
+        <div class="bg-primary-container relative p-1 w-10 h-10 rounded-md flex items-center justify-center cursor-pointer" (click)="toggleDropMenu()">
+            <span class="text-amber-50">
+                {{name().slice(0,2).toLocaleUpperCase()}}
+            </span>
+            @if(isDropdownOpen()) {
+            <div class="absolute top-full end-0 mt-1 bg-white border border-neutral-300 rounded-md shadow-md w-40 z-10">
+            <button class="w-full text-left px-4 py-2 text-sm text-red-700 hover:bg-neutral-100" (click)="logOut()">
+                Logout
+            </button>
+            </div>
+           }
+        </div>
+     </div>
+ </div>
+</div>

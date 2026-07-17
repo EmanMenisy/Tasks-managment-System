@@ -1,0 +1,22 @@
+.active{
+    border-radius: var(--radius-input);
+    background-color: var(--color-background);
+    padding: 10px 5px;
+    span{
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+}
+
+.sidebar-open{
+   width: 220px;
+}
+
+.sidebar-close{
+    width: 80px;
+}
+
+.sidebar-open,
+.sidebar-close {
+    transition: width 0.4s ease;
+}

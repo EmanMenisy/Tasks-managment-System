@@ -10,11 +10,11 @@ import { Auth } from './features/auth/service/auth';
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App implements OnInit{
-  protected readonly title = signal('tasksManagementSystem');
-  private authService = inject(Auth);
+export class App {
+  // protected readonly title = signal('tasksManagementSystem');
+  // private authService = inject(Auth);
 
-  ngOnInit(): void {
-    this.authService.checkRememberStatus();
-  }
+  // ngOnInit(): void {
+  //   this.authService.checkRememberStatus();
+  // }
 }

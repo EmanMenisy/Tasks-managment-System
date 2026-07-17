@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Sidebar } from "../../components/sidebar/sidebar";
 import { RouterOutlet } from "@angular/router";
 import { NavBar } from "../../components/nav-bar/nav-bar";
+import { Sidebar } from '../../components/sidebar/components/sidebar';
 
 @Component({
   standalone :true,

@@ -30,7 +30,7 @@ private Router = inject(Router);
       passwordValidator(),
     ],
   ],
-   rememberMe: [false]
+   rememberMe: [true]
  }) 
 
 

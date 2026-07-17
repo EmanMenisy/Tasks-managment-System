@@ -20,23 +20,33 @@ export class Auth {
     return  this.http.post(`/auth/v1/token?grant_type=password` , data);
    }
 
+   getUserData():Observable<any>{
+    return  this.http.get('/auth/v1/user');
+   }
+
+  logOut(data:any):Observable<any>{
+    return  this.http.post('/auth/v1/logout' , data);
+  }
 
   saveSession(data:any , rememberMe:any){
       const storage = rememberMe? localStorage : sessionStorage;
-      storage.setItem('access_token' , data.access_token);
-      localStorage.setItem('refresh_token' , data.refresh_token);
+      storage.setItem('accessToken' , data.access_token);
+      storage.setItem('refreshToken' , data.refresh_token);
       if(rememberMe){
         let oneMonthFromNow = Date.now() + 30 * 24 * 60 * 60 * 1000 ;
         localStorage.setItem ('rememberMeUntil' ,oneMonthFromNow.toString());
       }
    }
 
+   updateAccessToken(){
+      setInterval
+   }
   getAccessToken(): string | null {
-  return localStorage.getItem('access_token') ?? sessionStorage.getItem('access_token');
+  return localStorage.getItem('accessToken') ?? sessionStorage.getItem('access_token');
   }
 
   getRefreshToken(): string | null {
-    return localStorage.getItem('refresh_token') ?? sessionStorage.getItem('refresh_token');
+    return localStorage.getItem('refreshToken') ?? sessionStorage.getItem('refresh_token');
   }
 
   isRememberExpired(): boolean {
@@ -58,5 +68,7 @@ checkRememberStatus(): void {
     this.Router.navigate(['/auth/log-in']);
   }
 }
+
+
 
 }
