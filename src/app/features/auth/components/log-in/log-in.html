@@ -1,7 +1,7 @@
 <div class="auth-card">
   <div class="text-center">
-    <h4 class="text-headline-lg font-semibold">Welcome Back</h4>
-    <p class="card-second-title">Please enter your details to access your workspace.</p>
+    <h4 class="text-sm sm:text-2xl font-semibold">Welcome Back</h4>
+    <p class="text-sm md:text-title-sm text-neutral-700 font-regular">Please enter your details to access your workspace.</p>
   </div>
   <div class="mt-6">
     <form [formGroup]="LoginForm" (ngSubmit)="LogIn()">
@@ -24,7 +24,10 @@
         }
       </div>
       <div class="form-group">
-        <label class="form-label">Password</label>
+        <div class="flex justify-between items-center">
+            <label class="form-label">Password</label>
+            <a class="text-primary font-bold text-label-sm sm:block md:hidden" routerLink="/auth/forget">Forgot Password?</a>
+        </div>
         <div class="relative">
           <input
             [type]="showPassword() ? 'text' : 'password'"
@@ -55,7 +58,7 @@
             </label>
           </div>
           <div>
-            <a class="text-primary font-semibold text-title-sm">Forgot Password?</a>
+            <a class="hidden sm:block text-primary font-semibold text-title-sm cursor-pointer" routerLink="/auth/forget">Forgot Password?</a>
           </div>
         </div>
       </div>
@@ -64,7 +67,7 @@
       </div>
       <div class="text-center my-6">
         <h5 class="text-neutral-700 text-title-sm font-medium">
-          Don't have an account? <a class="text-primary font-semibold" routerLink="/auth/sign-up">Sign Up</a>
+          Don't have an account? <a class="text-primary font-semibold cursor-pointer" routerLink="/auth/sign-up" > Sign Up</a>
         </h5>
       </div>
     </form>

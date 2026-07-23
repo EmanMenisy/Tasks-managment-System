@@ -1,14 +1,20 @@
-import { Injectable, signal } from '@angular/core';
+import { HostListener, Injectable, OnInit, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class sideBarService {
+export class sideBarService{
 
   isSideOpen = signal<boolean>(false);
+  isMobile = signal(false);
 
-   toggleSideBar(){
-     this.isSideOpen.update(value => !value);
-   }
+    toggleSideBar(){
+      this.isSideOpen.update(value => !value);
+    }
+
+    checkScreen() {
+      this.isMobile.set(window.innerWidth < 768);
+    }
+   
 
 }

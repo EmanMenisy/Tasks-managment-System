@@ -1,6 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Auth } from '../../../features/auth/service/auth';
 import { Router } from '@angular/router';
+import { sideBarService } from '../sidebar/service/sidebar';
 
 @Component({
   standalone :true,
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class NavBar implements OnInit {
   authService = inject(Auth);
+  sideBarService = inject(sideBarService)
   router = inject(Router);
   name = signal<string>('');
   department=signal<string>('');
@@ -44,5 +46,9 @@ export class NavBar implements OnInit {
       },
       error:()=>{},
     })
+  }
+
+  openSideBar(){
+    this.sideBarService.toggleSideBar()
   }
 }

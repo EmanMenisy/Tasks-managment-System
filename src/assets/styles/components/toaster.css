@@ -6,9 +6,9 @@
          items-center
          gap-3
          rounded-sm
-         p-5
-         w-70
-         h-20
+         p-3
+         w-80
+         h-auto
          shadow-lg;     
 }
 

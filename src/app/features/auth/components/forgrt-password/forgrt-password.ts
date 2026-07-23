@@ -3,52 +3,39 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { passwordValidator } from '../../../../shared/validators/password.validator';
 import { Auth } from '../../service/auth';
 import { toasterService } from '../../../../shared/toaster/service/toaster';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-
+import { Router, RouterModule } from '@angular/router';
 @Component({
-  standalone: true,
-  selector: 'app-log-in',
+  standalone:true, 
+  selector: 'app-forgrt-password',
   imports: [ReactiveFormsModule , RouterModule],
-  templateUrl: './log-in.html',
-  styleUrl: './log-in.css',
+  templateUrl: './forgrt-password.html',
+  styleUrl: './forgrt-password.css',
 })
-export class LogIn {
+export class ForgrtPassword {
 protected showPassword = signal(false);
 private fb = inject(FormBuilder);
 private authService = inject(Auth);
 private toaster = inject(toasterService);
 private Router = inject(Router);
-
- LoginForm = this.fb.group({
+isSubmit = signal<boolean>(false);
+ forgetForm = this.fb.group({
     email: ['', [Validators.required , Validators.email]],
-    password:[
-    '',
-    [
-      Validators.required,
-      Validators.minLength(8),
-      Validators.maxLength(64),
-      passwordValidator(),
-    ],
-  ],
-   rememberMe: [true]
  }) 
 
 
- LogIn(){
+ forgetPassword(){
+  this.isSubmit.set(true);
   const payload = {
-    email: this.LoginForm.value.email!,
-    password: this.LoginForm.value.password!,
+    email: this.forgetForm.value.email!,
   }
-  this.authService.LogIn(payload).subscribe({
+  this.authService.forgetPassword(payload).subscribe({
     next:(res)=>{
-      this.authService.saveSession(res , this.LoginForm.value.rememberMe);
       this.toaster.show({
       type: 'Success',
       message: 'you have been Logged successfully.',
       icon: '/icons/Icon (3).png',
       position: 'top-right'
     });
-
     },
     error:(err)=>{
       console.log(err);
@@ -60,15 +47,12 @@ private Router = inject(Router);
     });
     console.log('Login Clicked rror');
     },
-    complete:()=>{
-      this.Router.navigate(['/layout']);
-    }
   })
 }
 
  //get form control
  control(name:string){
-   return this.LoginForm.get(name);
+   return this.forgetForm.get(name);
  }
 
  togglePassword(){

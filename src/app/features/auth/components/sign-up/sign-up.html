@@ -1,7 +1,9 @@
 <div class="auth-card">
-  <div class="text-center">
-    <h4 class="text-headline-lg font-semibold">Create your workspace</h4>
-    <p class="card-second-title">Join the editorial approach to task management.</p>
+  <div class="text-start md:text-center">
+    <h4 class="text-md md:text-2xl font-semibold">Create your workspace</h4>
+    <p class="hidden md:block text-title-sm my-2 text-neutral-700 font-regular">Join the editorial approach to task management.</p>
+    <p class="block md:hidden text-sm my-2 text-neutral-700 font-regular">Join the curated environment for institutional trust
+and task precision..</p>
   </div>
   <div class="mt-6">
     <form [formGroup]="signUpForm" (ngSubmit)="createAcount()">
@@ -101,7 +103,7 @@
         </div>
       </div>
        
-      <div class="card-Surface">
+      <div class="card-Surface hidden md:block">
         <div class="flex items-center gap-1 mb-1">
           <img
             [src]="control('password')?.value && !control('password')?.hasError('minlength') ? '/icons/Icon (1).svg'

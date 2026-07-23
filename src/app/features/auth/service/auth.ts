@@ -28,6 +28,11 @@ export class Auth {
     return this.http.post('/auth/v1/logout', data);
   }
 
+  forgetPassword(payload:any): Observable<any>{
+    return this.http.post('/auth/v1/recover', payload);
+
+  }
+
   saveSession(data: any, rememberMe: any) {
      localStorage.clear();
      sessionStorage.clear();
@@ -53,7 +58,7 @@ export class Auth {
     );
   }
 
-  private getStorage(): Storage {
+   getStorage(): Storage {
     if (localStorage.getItem('refreshToken')) {
       return localStorage;
     }

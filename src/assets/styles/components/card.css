@@ -42,12 +42,18 @@
            font-regular;
 }
 
+.card-second-titl-small{
+        @apply text-sm
+           text-neutral-700
+           font-regular;
+}
+
 .auth-card{
     @apply bg-white 
         rounded-white-card
         shadow-card
         p-8
-        ; 
+        w-80; 
           
 }
 
